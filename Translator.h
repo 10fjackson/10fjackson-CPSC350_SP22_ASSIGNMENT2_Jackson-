@@ -9,6 +9,7 @@ Translator();
 string translateEnglishWord(string eng);
 string translateEnglishSentence(string sentence);
 string translateTutWord(string tut);
-//string translateTutSentence(string tutSentence);
+string translateTutSentence(string tutSentence);
+//boolean isVowel(char c);
 };
 #endif

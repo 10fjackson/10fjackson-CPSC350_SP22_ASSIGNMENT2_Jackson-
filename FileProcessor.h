@@ -7,5 +7,6 @@ public:
 FileProcessor();
 ~FileProcessor();
 void processFile(string fileName);
+void processTutFile(string fileName);
 };
 #endif
