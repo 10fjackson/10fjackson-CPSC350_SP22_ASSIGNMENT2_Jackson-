@@ -20,19 +20,17 @@ void FileProcessor::processFile(string fileName){
     }
   }
   Translator *t = new Translator();
-  cout<<t->translateEnglishSentence(contents)<<endl;
-  delete t;
-}
-void FileProcessor::processTutFile(string fileName){
-  string contents;
-  string line;
-  ifstream myfile(fileName);
-  if(myfile.is_open()){
-    while(getline(myfile,line)){
-      contents += line;
-    }
+  string input;
+  cout<<"Enter 'E2T' to translate an English file or 'T2E' to translate a Tutnese file"<<endl;
+  cin>>input;
+  if(input == "T2E"){
+    cout<<t->translateTutSentence(contents)<<endl;
   }
-  Translator *t = new Translator();
-  cout<<t->translateTutSentence(contents)<<endl;
+  else if(input == "E2T"){
+    cout<<t->translateEnglishSentence(contents)<<endl;
+  }
+  else{
+    cout<<"Please enter 'E2T' for English to Tutnese translation or 'T2E' for Tutnese to English translation"<<endl;
+  }
   delete t;
 }

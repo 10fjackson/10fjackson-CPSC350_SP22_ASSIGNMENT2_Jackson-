@@ -55,21 +55,24 @@ boolean Translator::isVowel(char c){
 //Translation from tutnese to english
 string Translator::translateTutWord(string tut){
   Model *m = new Model;
+  int count = 0;
   string translation = "";
   for(int i = 0; i < tut.length();++i){
-    if(tut[i] == 's' && tut[i+1] == 'q' && tut[i+2] == 'u' && tut[i+3] == 'a' && tut[i+4] == 't' /* && isVowel(tut[i+5])*/ ){
+    if(tut[i] == 's' && tut[i+1] == 'q' && tut[i+2] == 'u' && tut[i+3] == 'a' && tut[i+4] == 't'){
       i += 5;
       translation += tut[i];
+      count = 1;
     }
     else if(tut[i] == 's' && tut[i+1] == 'q' && tut[i+2] == 'u' && tut[i+3] == 'a'){
       i += 4;
       translation += tut[i];
+      count = 1;
     }
     translation += tut[i];
-
-    if(tut[i] != 'a' && tut[i] != 'e' && tut[i] != 'i' && tut[i] != 'o' && tut[i] != 'u'){
+    if(count == 0 && tut[i] != 'a' && tut[i] != 'e' && tut[i] != 'i' && tut[i] != 'o' && tut[i] != 'u'){
       i += m -> skipChars(tolower(tut[i]));
     }
+    count = 0;
   }
   delete m;
   return translation;
